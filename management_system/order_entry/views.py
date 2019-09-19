@@ -1,6 +1,38 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from order_entry.forms import order_form
+from order_entry.models import order
 
-# Create your views here.
-def index(request):
-    return HttpResponse("Hello, world. You're at the order entry index.")
+def odr(request):  
+    if request.method == "POST":  
+        form = order_form(request.POST)  
+        if form.is_valid():  
+            try:  
+                form.save()  
+                return redirect(show)  
+            except:  
+                pass  
+    else:  
+        form = order_form()  
+    return render(request,'index.html',{'form':form})  
+
+def show(request):
+    orders = order.objects.all()
+    return render(request,"show.html",{'order_entry_order':orders})
+
+def edit(request, id):  
+    employee = order.objects.get(id=id)  
+    return render(request,'edit.html', {'employee':employee})  
+
+def update(request, id):  
+    employee = order.objects.get(id=id)  
+    form = order_form(request.POST, instance = employee)  
+    if form.is_valid():  
+        form.save()  
+        return redirect(show)  
+    return render(request, 'edit.html', {'employee': employee})  
+
+def destroy(request, id):  
+    employee = order.objects.get(id=id)
+    employee.delete()
+    return redirect(show)
