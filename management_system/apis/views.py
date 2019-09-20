@@ -6,6 +6,7 @@ from rest_framework import status , generics
 
 
 class ContactData(generics.GenericAPIView):
+    queryset = Contact.objects.all()
     serializer_class = ContactDataSerializer
     permission_classes = [IsAuthenticated,]
 

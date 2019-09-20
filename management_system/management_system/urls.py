@@ -24,7 +24,8 @@ urlpatterns = [
     path('order_entry/', include('order_entry.urls')),
 
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    
-    path('apis/', schema_view),
+    #path('customer/', include('apis.urls')),
+    path('swagger/', schema_view),
     path('apis/', include('apis.urls')),
+    
 ]
