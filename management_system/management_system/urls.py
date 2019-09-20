@@ -16,7 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from rest_framework_swagger.views import get_swagger_view
+schema_view = get_swagger_view(title='Demo Swagger API')
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('order_entry/', include('order_entry.urls'))
+    path('order_entry/', include('order_entry.urls')),
+
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    
+    path('apis/', schema_view),
+    path('apis/', include('apis.urls')),
 ]
