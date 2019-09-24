@@ -36,8 +36,8 @@
                 <td>{{ o.order_created_date }}</td>
                 <td>{{ o.order_notes }}</td>
                 <td>
-                    <a href="/edit/{{ o.id }}"><span class="glyphicon glyphicon-pencil">Edit</span></a>
-                    <a href="/delete/{{ o.id }}">Delete</a>
+                    <a href="/order_entry/update/{{ o.id }}"><span class="glyphicon glyphicon-pencil">Edit</span></a>
+                    <a href="/order_entry/delete/{{ o.id }}">Delete</a>
                 </td>
             </tr>
             {% endfor %}
@@ -45,7 +45,7 @@
     </table>
     <br>
     <br>
-    <center><a href="/emp" class="btn btn-primary">Add New Record</a></center>
+    <center><a href="/order_entry/odr" class="btn btn-primary">Add New Record</a></center>
 </body>
 
 </html>

@@ -20,19 +20,15 @@ def show(request):
     orders = order.objects.all()
     return render(request,"show.html",{'order_entry_order':orders})
 
-def edit(request, id):  
-    employee = order.objects.get(id=id)  
-    return render(request,'edit.html', {'employee':employee})  
-
 def update(request, id):  
-    employee = order.objects.get(id=id)  
-    form = order_form(request.POST, instance = employee)  
+    orders = order.objects.get(id=id)  
+    form = order_form(request.POST, instance = orders)  
     if form.is_valid():  
         form.save()  
         return redirect(show)  
-    return render(request, 'edit.html', {'employee': employee})  
+    return render(request, 'edit.html', {'order': orders})  
 
 def destroy(request, id):  
-    employee = order.objects.get(id=id)
-    employee.delete()
+    orders = order.objects.get(id=id)
+    orders.delete()
     return redirect(show)
