@@ -15,21 +15,29 @@
                 <th>Id</th>
                 <th>order_desc</th>
                 <th>order_date</th>
-                <th>order_date</th>
+                <th>order_item</th>
+                <th>order_payment_type</th>
                 <th>order_qty</th>
-                <th>Actions</th>
+                <th>order_amount</th>
+                <th>order_created_date</th>
+                <th>order_notes</th>
             </tr>
         </thead>
         <tbody>
             {% for o in order_entry_order %}
             <tr>
-                <td>{{ employee.eid }}</td>
-                <td>{{ employee.ename }}</td>
-                <td>{{ employee.eemail }}</td>
-                <td>{{ employee.econtact }}</td>
+                <td>{{ o.id }}</td>
+                <td>{{ o.order_desc }}</td>
+                <td>{{ o.order_date }}</td>
+                <td>{{ o.order_item }}</td>
+                <td>{{ o.order_payment_type }}</td>
+                <td>{{ o.order_qty }}</td>
+                <td>{{ o.order_amount }}</td>
+                <td>{{ o.order_created_date }}</td>
+                <td>{{ o.order_notes }}</td>
                 <td>
-                    <a href="/edit/{{ employee.id }}"><span class="glyphicon glyphicon-pencil">Edit</span></a>
-                    <a href="/delete/{{ employee.id }}">Delete</a>
+                    <a href="/edit/{{ o.id }}"><span class="glyphicon glyphicon-pencil">Edit</span></a>
+                    <a href="/delete/{{ o.id }}">Delete</a>
                 </td>
             </tr>
             {% endfor %}

@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from .models import Contact
+from order_entry.models import order
 
 
-class ContactDataSerializer(serializers.ModelSerializer):
+class order_api_serializer(serializers.ModelSerializer):
     class Meta:
-        model = Contact
+        model = order
         fields = '__all__'

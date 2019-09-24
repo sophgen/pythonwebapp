@@ -1,7 +1,4 @@
 from django.db import models
+from order_entry.models import order
 
 
-class Contact(models.Model):
-    name = models.CharField(max_length=22)
-    phone = models.CharField(max_length=22)
-    address = models.CharField(max_length=44)

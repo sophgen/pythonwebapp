@@ -30,8 +30,8 @@ class payment_type(models.Model):
 class order(models.Model):
     order_desc = models.CharField(max_length=255)
     order_date = models.DateField(auto_now=False)
-    order_item = models.ForeignKey(item, on_delete=models.CASCADE, related_name="item")
-    order_payment_type = models.ForeignKey(payment_type, on_delete=models.CASCADE, related_name="payment")
+    order_item = models.ForeignKey(item, on_delete=models.PROTECT, related_name="item")
+    order_payment_type = models.ForeignKey(payment_type, on_delete=models.PROTECT, related_name="payment")
     order_qty = models.IntegerField()
     order_amount = models.FloatField()
     order_created_date = models.DateTimeField(auto_now=True)
