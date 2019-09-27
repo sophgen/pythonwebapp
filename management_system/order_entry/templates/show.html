@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Employee Records</title>
-    {% load staticfiles %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-</head>
-
 <body>
+    {% csrf_token %}
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
     <table class="table table-striped table-bordered table-sm">
         <thead class="thead-dark">
             <tr>

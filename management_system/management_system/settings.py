@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'apis.apps.ApisConfig',
     'rest_framework',
     'rest_framework_swagger',
+    'bootstrap4'
 ]
 
 MIDDLEWARE = [
